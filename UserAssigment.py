@@ -9,7 +9,7 @@ class BankAccount:
         
     def withdraw(self, amount):
         if self.balance < amount:
-            print(f"Insufficient Funds!, Balance is currently:{self.balance}. You withdraw request of {amount} can't be completed.")
+            print(f"Insufficient Funds!, Balance is currently:{self.balance}. Your withdraw request of {amount} can't be completed.")
         else:
             self.balance -= amount
             return self
@@ -44,10 +44,12 @@ class User:
         return self
     # bonus have this method decrease the user's balance by the amount and add that amount to other other_user's balance
     #was not able to 
-    def transfer_money(self, transfer_positive, transfer_negative):
-        self.acount_balance.balance += transfer_positive
-        self.acount_balance.balance -= transfer_negative
-        return self
+    def transfer_money(self, amount, user):
+        self.amount -= amount
+        user.amount += amount
+        self.display_user_balance()
+        user.display_user_balance()
+
 
 guido = User("Guido Van Rossum", "guidoman@python.com")
 marty = User("Marty Johson", "martinluis@google.com")
